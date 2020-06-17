@@ -1,5 +1,5 @@
 <?php
-namespace incheckoutpage\Widgets;
+namespace widget1\Widgets;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -20,12 +20,12 @@ use Elementor\Widget_Base;
  *
  * @since 2.3.0
  */
-class in_checkout_page extends Widget_Base {
+class widget_class extends Widget_Base {
 
 	/**
 	 * Get widget name.
 	 *
-	 * Retrieve star rating widget name.
+	 * elementor widget description
 	 *
 	 * @since 2.3.0
 	 * @access public
@@ -33,13 +33,13 @@ class in_checkout_page extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'in_checkout_page';
+		return 'widget_name';
 	}
 
 	/**
 	 * Get widget title.
 	 *
-	 * Retrieve star rating widget title.
+	 * elementor widget description
 	 *
 	 * @since 2.3.0
 	 * @access public
@@ -47,13 +47,13 @@ class in_checkout_page extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Checkout Page', 'elementor' );
+		return __( 'New Widget', 'elementor' );
 	}
 
 	/**
 	 * Get widget icon.
 	 *
-	 * Retrieve star rating widget icon.
+	 * elementor widget description
 	 *
 	 * @since 2.3.0
 	 * @access public
@@ -90,14 +90,14 @@ class in_checkout_page extends Widget_Base {
 		$this->start_controls_section(
 			'section_rating',
 			[
-				'label' => __( 'Rating', 'elementor' ),
+				'label' => __( 'First section', 'elementor' ),
 			]
 		);
 
 		$this->add_control(
-			'rating_scale',
+			'select_box',
 			[
-				'label' => __( 'Rating Scale', 'elementor' ),
+				'label' => __( 'Select Box', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'5' => '0-5',
@@ -107,56 +107,6 @@ class in_checkout_page extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'rating',
-			[
-				'label' => __( 'Rating', 'elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'min' => 0,
-				'max' => 10,
-				'step' => 0.1,
-				'default' => 5,
-				'dynamic' => [
-					'active' => true,
-				],
-			]
-		);
-
-		$this->add_control(
-			'star_style',
-			[
-				'label' => __( 'Icon', 'elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'star_fontawesome' => 'Font Awesome',
-					'star_unicode' => 'Unicode',
-				],
-				'default' => 'star_fontawesome',
-				'render_type' => 'template',
-				'prefix_class' => 'elementor--star-style-',
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'unmarked_star_style',
-			[
-				'label' => __( 'Unmarked Style', 'elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'label_block' => false,
-				'options' => [
-					'solid' => [
-						'title' => __( 'Solid', 'elementor' ),
-						'icon' => 'eicon-star',
-					],
-					'outline' => [
-						'title' => __( 'Outline', 'elementor' ),
-						'icon' => 'eicon-star-o',
-					],
-				],
-				'default' => 'solid',
-			]
-		);
 
 		$this->add_control(
 			'title',
@@ -170,61 +120,9 @@ class in_checkout_page extends Widget_Base {
 			]
 		);
           
-		$this->add_control(
-			'number_reviewing',
-			[
-				'label' => __( 'Schema text', 'jt-elementor-review' ),
-				'type' => Controls_Manager::TEXT,
-				'separator' => 'before',
-				'dynamic' => [
-					'active' => true,
-				],
-			]
-		);
-        $this->add_control(
-              'review_description',
-              [
-                  'label' => __( 'Description text', 'jt-elementor-review' ),
-                  'type' => Controls_Manager::TEXT,
-                  'separator' => 'before',
-                  'dynamic' => [
-                      'active' => true,
-                  ],
-              ]
-          );
-     	$this->add_control(
-        	'review_sku',
-              [
-                  'label' => __( 'Sku (optional)', 'jt-elementor-review' ),
-                  'type' => Controls_Manager::TEXT,
-                  'separator' => 'before',
-                  'dynamic' => [
-                      'active' => true,
-                  ],
-              ]
-          );
-      $this->add_control(
-        	'ratingCount',
-              [
-                  'label' => __( 'ratingCount', 'jt-elementor-review' ),
-                  'type' => Controls_Manager::NUMBER,
-                  'separator' => 'before',
-                  'dynamic' => [
-                      'active' => true,
-                  ],
-              ]
-          );
-      $this->add_control(
-        	'priceCurrency',
-              [
-                  'label' => __( 'priceCurrency (Ex: USD,ILS)', 'jt-elementor-review' ),
-                  'type' => Controls_Manager::TEXT,
-                  'separator' => 'before',
-                  'dynamic' => [
-                      'active' => true,
-                  ],
-              ]
-          );
+		
+      
+     	
             $this->add_control(
         	'price',
               [
@@ -238,7 +136,6 @@ class in_checkout_page extends Widget_Base {
           );
       
       
-
 		$this->add_responsive_control(
 			'align',
 			[
@@ -262,7 +159,7 @@ class in_checkout_page extends Widget_Base {
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
-				'prefix_class' => 'elementor-star-rating%s--align-',
+				'prefix_class' => 'elementor-widget%s--align-',
 				'selectors' => [
 					'{{WRAPPER}}' => 'text-align: {{VALUE}}',
 				],
@@ -397,28 +294,7 @@ class in_checkout_page extends Widget_Base {
         */
 	}
 
-	/**
-	 * @since 2.3.0
-	 * @access protected
-	 */
-	protected function get_rating() {
-		$settings = $this->get_settings_for_display();
-		$rating_scale = (int) $settings['rating_scale'];
-		$rating = (float) $settings['rating'] > $rating_scale ? $rating_scale : $settings['rating'];
 
-		return [ $rating, $rating_scale ];
-	}
-
-	/**
-	 * Print the actual stars and calculate their filling.
-	 *
-	 * Rating type is float to allow stars-count to be a fraction.
-	 * Floored-rating type is int, to represent the rounded-down stars count.
-	 * In the `for` loop, the index type is float to allow comparing with the rating value.
-	 *
-	 * @since 2.3.0
-	 * @access protected
-	 */
 
 
 	/**
@@ -430,37 +306,32 @@ class in_checkout_page extends Widget_Base {
 	
 
 		$this->add_render_attribute( 'navarro_wrapper', [
-			'class' => 'elementor-star-rating',
-			'title' => '$textual_rating',
-			'itemtype' => 'http://schema.org/Rating',
-			'itemscope' => '',
-			'itemprop' => 'reviewRating',
+			'class' => 'elementor-widget-class',
+			'title' => 'title',
+			'creator' => 'ido-navarro'
+
 		] );
 
-	
-		
-		?>
-
-		<div class="checkout">
-			<?php echo "hello world"; ?>
-		</div>
-<?php
-    //$Productname = $settings['title'] ? $settings['title'] : get_title;
+	    //$Productname = $settings['title'] ? $settings['title'] : get_title;
 
     // $custom_logo_id = get_theme_mod( 'custom_logo' );
 	//  $logo_image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
     // $image = get_the_post_thumbnail_url() ? get_the_post_thumbnail_url() : $logo_image ;
     // $sitetitle = get_bloginfo( 'name' );
 	//$url = get_permalink() ? get_permalink() :  get_bloginfo( 'url' );
+		
+		?>
 
+		<div class="widget-clall-container>
+			<?php echo "hello world"; ?>
+		</div>
 
-?>
 		<script >
 		{
-			//alert("hello");
+		//alert("hello");
       
-    	}
-	</script>
+    		}
+		</script>
 
 
 
